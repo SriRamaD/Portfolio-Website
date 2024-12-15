@@ -30,8 +30,8 @@ html {
 body {
   font-weight: 400;
   overflow-x: hidden;
-  position: relative;
-  background-color:#282c34 !important;
+  /* position: relative; */
+  background-color:black !important;
   color: #fff !important;
   font-family: 'Centra', sans-serif !important;
 }
@@ -82,7 +82,7 @@ p.danger {
 	color: red;
 }
 
-/************ Navbar Css ************/
+/************ Navbar CSS ************/
 nav.navbar {
   padding: 18px 0;
   position: fixed;
@@ -95,7 +95,6 @@ nav.navbar.scrolled {
   padding: 0px 0;
   background-color: #121212;
 }
-/* Logo of the page */
 nav.navbar a.navbar-brand {
     width: 9%;
 }
@@ -232,6 +231,165 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
+
+/************ Banner Css ************/
+.banner {
+  margin-top: 0;
+  padding: 260px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  /* background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%); */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.banner h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+.banner button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+.banner button:hover svg {
+  margin-left: 25px;
+}
+.banner img {
+  animation: updown 3s linear infinite;
+}
+@keyframes updown {
+  0% {
+      transform: translateY(-20px);
+  }
+  50% {
+      transform: translateY(20px);
+  }
+  100% {
+      transform: translateY(-20px);
+  }
+}
+.txt-rotate > .wrap {
+border-right: 0.08em solid #666;
+}
+
+
+/************ Skills Css ************/
+.skill-bar {
+  margin: 15px auto; /* Center the bar horizontally */
+  background-color: gray;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 50%;
+  text-align: center; /* Align text within the bar */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.skill-name {
+  padding: 5px 10px;
+  color: #fff;
+  float: center;
+  text-decoration:solid;
+  font-weight: bold;
+}
+
+.skill-logo {
+  max-width: 60%; /* Ensure the image is never wider than its container */
+  height: auto; /* Maintain the aspect ratio of the image */
+  object-fit: contain; /* Ensure the image is scaled properly within its box */
+  border-radius: 0px; /* Optional: Add rounded corners to the image */
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.skill-carousel {
+  padding-left: 70px;
+}
+/*
+.skill-percentage {
+  height: 35px;
+  background-color: #fff; /* Bootstrap primary color */
+  /*border-radius: 20px 0 0 20px;
+  text-align: right;
+  line-height: 20px;
+  color: #fff;
+  transition: width 1s ease-in-out;
+}
+*/
+
+
+.carousel-item h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Adjustments for the carousel in a dark theme */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #888;
+}
+
+/* Experience Section */
+.experience-card {
+  max-width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px;
+}
+.experience-card img {
+  height: 100px; /* Adjust based on your logo size */
+  object-fit: contain; /* Keeps logo aspect ratio */
+  padding: 10px; /* Adds some space around the logo */
+}
+
+.experience-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Modal styling if needed */
+.modal-content {
+  color: #000; /* Modal text color */
+}
+.modal-title {
+  font-weight: bold;
+}
+
+
 
 .App {
   text-align: center;
