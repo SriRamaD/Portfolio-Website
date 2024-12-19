@@ -5,6 +5,7 @@ import Image2 from "../assets/images/Hi3.png";
 import Image3 from "../assets/images/Hi4.png";
 import { useState, useEffect } from "react";
 
+
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);

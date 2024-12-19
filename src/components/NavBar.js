@@ -3,6 +3,7 @@ import { Nav, Navbar, Container } from "react-bootstrap";
 // import homeLogo from '../assets/images/logo.svg';
 import linkedinLogo from '../assets/images/linkedinlogo.svg';
 import githubLogo from '../assets/images/linkedinlogo.svg';
+import { Connect } from "./Connect";
 export const NavBar = () => {
     const[activeLink, setActiveLink] = useState('home');
     const[scrolled, setScrolled] = useState(false);
@@ -37,10 +38,10 @@ export const NavBar = () => {
                     <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
                     <span className="navbar-text">
                         <div className="social-icon">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/krishnasai1310/">
                                 <img src={linkedinLogo} alt="LinkedIn Icon"/>
                             </a>
-                            <a href="#">
+                            <a href="https://github.com/SriRamaD">
                                 <img src={githubLogo} alt="Github Icon"/>
                             </a>
                         </div>
