@@ -428,7 +428,7 @@ border-right: 0.08em solid #666;
 .experience-card img {
   height: 90px;
   object-fit: contain;
-  /* padding: 20px; */
+  padding: 10px;
   background: linear-gradient(90.21deg, black -5.91%, gray 31.58%);
 }
 

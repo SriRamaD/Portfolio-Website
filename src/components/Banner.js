@@ -10,7 +10,7 @@ import resume from "../assets/Resume_Sri.pdf";
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
-    const toRotate = ["Full Stack Developer", "Software Engineer", "Frontend Developer", "Backend Developer"];
+    // const toRotate = ["Full Stack Developer", "Software Engineer", "Frontend Developer", "Backend Developer"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100)
     const period = 200;
@@ -19,12 +19,32 @@ export const Banner = () => {
     const [currentImage, setCurrentImage] = useState(0);
 
     useEffect(() => {
+        const toRotate = ["Full Stack Developer", "Software Engineer", "Frontend Developer", "Backend Developer"];
+        const tick = () => {
+            let i=loopNum%toRotate.length;
+            let fullText = toRotate[i]; 
+            let updatedText= isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length+1);
+            setText(updatedText);
+    
+            if(isDeleting) {
+                setDelta(prevDelta => prevDelta/2)
+            }
+            if(!isDeleting && updatedText === fullText) {
+                setIsDeleting(true);
+                setDelta(period);
+            }
+            else if(isDeleting && updatedText === '') {
+                setIsDeleting(false);
+                setLoopNum(loopNum+1);
+                setDelta(500);
+            }
+        }
         const ticker = setInterval(() => {
             tick();
         }, delta)
 
         return () => { clearInterval(ticker) };
-    }, [text])
+    }, [delta, isDeleting, loopNum, text])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -32,27 +52,27 @@ export const Banner = () => {
         }, 3000); // Change image every 3 seconds
 
         return () => clearInterval(intervalId); // Clean up on component unmount
-    }, []);
+    }, [images.length]);
 
-    const tick = () => {
-        let i=loopNum%toRotate.length;
-        let fullText = toRotate[i]; 
-        let updatedText= isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length+1);
-        setText(updatedText);
+    // const tick = () => {
+    //     let i=loopNum%toRotate.length;
+    //     let fullText = toRotate[i]; 
+    //     let updatedText= isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length+1);
+    //     setText(updatedText);
 
-        if(isDeleting) {
-            setDelta(prevDelta => prevDelta/2)
-        }
-        if(!isDeleting && updatedText === fullText) {
-            setIsDeleting(true);
-            setDelta(period);
-        }
-        else if(isDeleting && updatedText === '') {
-            setIsDeleting(false);
-            setLoopNum(loopNum+1);
-            setDelta(500);
-        }
-    }
+    //     if(isDeleting) {
+    //         setDelta(prevDelta => prevDelta/2)
+    //     }
+    //     if(!isDeleting && updatedText === fullText) {
+    //         setIsDeleting(true);
+    //         setDelta(period);
+    //     }
+    //     else if(isDeleting && updatedText === '') {
+    //         setIsDeleting(false);
+    //         setLoopNum(loopNum+1);
+    //         setDelta(500);
+    //     }
+    // }
     const handleConnectClick = () => {
         // Scroll to the Connect section
         const connectSection = document.getElementById('connect');
