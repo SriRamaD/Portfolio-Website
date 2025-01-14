@@ -232,6 +232,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
 
+
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
@@ -265,7 +266,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   width: 96%;
 }
-.banner button {
+button-container {
+  display: flex;
+  justify-content: flex-start; /* Align buttons to the left */
+  gap: 20px; /* Add space between the buttons */
+  margin-top: 60px; /* Add some margin for spacing */
+}
+/* General button styles for both the button and download link */
+.banner button, .btn-download {
   color: #fff;
   font-weight: 700;
   font-size: 20px;
@@ -273,19 +281,37 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   display: flex;
   align-items: center;
+  text-decoration: none; /* Remove underline for <a> link */
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
 }
-.banner button svg {
+
+.banner button svg, .btn-download svg {
   font-size: 25px;
   margin-left: 10px;
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
-.banner button:hover svg {
-  margin-left: 25px;
+
+/* Hover effects for both buttons */
+.banner button:hover, .btn-download:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
-.banner img {
-  animation: updown 3s linear infinite;
+
+.banner button:hover svg, .btn-download:hover svg {
+  margin-left: 25px; /* Move the icon further on hover */
 }
+
+
+
+
 @keyframes updown {
   0% {
       transform: translateY(-20px);
@@ -332,7 +358,11 @@ border-right: 0.08em solid #666;
 }
 
 .skill-carousel {
-  padding-left: 70px;
+  /* padding-left: 70px; */
+  padding: 10px;
+  height: 600px;  /* Set a fixed height for the carousel */
+  position: relative;
+  margin-bottom: 50px;
 }
 /*
 .skill-percentage {
@@ -356,11 +386,36 @@ border-right: 0.08em solid #666;
 /* Adjustments for the carousel in a dark theme */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  filter: invert(1);
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px;
 }
 
+
 .carousel-indicators [data-bs-target] {
-  background-color: #888;
+  background-color: #fff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  color: white; /* Set arrow color */
+  z-index: 10;
+}
+
+.carousel-indicators {
+  bottom: 10px; /* Adjust the position of the dots */
+  z-index: 10;
+  margin-bottom: 20px;
+  /* right: 50%; */
+  transform: translateX(1%);
+}
+
+.carousel-indicators .active {
+  background-color: blue; /* Active dot color */
+}
+
+.carousel-item {
+  padding-bottom: 50px; /* Add space between carousel items and dots */
 }
 
 /* Experience Section */
@@ -369,24 +424,83 @@ border-right: 0.08em solid #666;
   margin-bottom: 20px;
   box-shadow: 0 0 10px;
 }
+
 .experience-card img {
-  height: 100px; /* Adjust based on your logo size */
-  object-fit: contain; /* Keeps logo aspect ratio */
-  padding: 10px; /* Adds some space around the logo */
+  height: 90px;
+  object-fit: contain;
+  /* padding: 20px; */
+  background: linear-gradient(90.21deg, black -5.91%, gray 31.58%);
 }
 
 .experience-card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: linear-gradient(90.21deg, black -5.91%, gray 31.58%);
+  color: black;
 }
 
-/* Modal styling if needed */
-.modal-content {
-  color: #000; /* Modal text color */
+.experience-card button {
+  background-color: black; 
+  color: white; 
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer; 
+  outline: none;
 }
+
+.experience-card button:hover {
+  background-color: white;
+  color: black;
+}
+
+.experience-card button:focus {
+  outline: none;
+}
+
+/* Modal Styling */
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;  /* Ensures the modal takes up the mentioned screen height */
+}
+
+.modal-content {
+  color: #333;  /* Ensure the text is visible */
+  padding: 20px; /* Add some padding */
+  background: linear-gradient(90.21deg, white, gray);
+}
+
 .modal-title {
   font-weight: bold;
+}
+
+.modal-body {
+  max-height: 400px;
+  overflow-y: auto; /* Add scroll if the content is large */
+  padding: 20px;
+  color: #000;
+}
+
+.modal-header {
+  /* background-color: #f8f9fa; */
+  padding-top: 50px;
+  color: #000;
+}
+
+button.close {
+  background: none;
+  border: none;
+}
+
+ul {
+  padding-left: 20px; /* Add padding to the list */
+}
+
+ul li {
+  margin-bottom: 10px; /* Space out the bullet points */
 }
 
 /************ Projects Css ************/
@@ -399,6 +513,7 @@ border-right: 0.08em solid #666;
 	font-size: 45px;
 	font-weight: 700;
   text-align: center;
+  margin-bottom: 30px;
 }
 .project p {
   color: #B8B8B8;
@@ -409,59 +524,7 @@ border-right: 0.08em solid #666;
   text-align: center;
   width: 56%;
 }
-.project .nav.nav-tabs {
-  width: 72%;
-  margin: 0 auto;
-  border-radius: 50px;
-  background-color: rgb(255 255 255 / 10%);
-  overflow: hidden;
-}
-.project .nav.nav-tabs .nav-item {
-  width: 33.33333%;
-}
-.project .nav.nav-tabs .nav-link {
-  background-color: transparent;
-  border-radius: 0;
-  padding: 17px 0;
-  color: #fff;
-  width: 100%;
-  font-size: 17px;
-  letter-spacing: 0.8px;
-  font-weight: 500;
-  position: relative;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-  z-index: 0;
-}
-.project .nav.nav-tabs .nav-link::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
-}
-.project .nav.nav-tabs .nav-link.active::before {
-  width: 100% !important;
-}
-.project .nav.nav-tabs .nav-link.active {
-  border: 1px solid rgba(255, 255, 255, 1);
-}
-.nav-link#projects-tabs-tab-first {
-border: 1px solid rgba(255, 255, 255, 0.5);
-border-radius: 55px 0px 0px 55px;
-}
-.nav-link#projects-tabs-tab-second {
-border-top: 1px solid rgba(255, 255, 255, 0.5);
-border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.nav-link#projects-tabs-tab-third {
-border: 1px solid rgba(255, 255, 255, 0.5);
-border-radius: 0 55px 55px 0;
-}
+
 .proj-imgbx {
 position: relative;
 border-radius: 30px;
@@ -470,7 +533,7 @@ margin-bottom: 24px;
 }
 .proj-imgbx::before {
 content: "";
-background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+background: linear-gradient(90.21deg, black, gray);
 opacity: 0.85;
 position: absolute;
 width: 100%;
@@ -515,13 +578,45 @@ transition: 0.4s ease-in-out;
   z-index: -4;
 }
 
-/************ Projects Css ************/
+@keyframes flashColors {
+  0% {
+    color: #1db954; /* Green */
+  }
+  25% {
+    color: #ff0000; /* Red */
+  }
+  50% {
+    color: #ffcc00; /* Yellow */
+  }
+  75% {
+    color: #00aaff; /* Blue */
+  }
+  100% {
+    color: #1db954; /* Green (repeating) */
+  }
+}
+
+.proj-txtx h6 a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.proj-txtx h6 a:hover {
+  animation: flashColors 1.5s infinite;  /* Change color on hover */
+  text-decoration: underline; /* Underline the link on hover */
+}
+
+/************ Connect CSS ************/
 .connect {
-  background: linear-gradient(90.21deg);
-  padding: 60px 0 200px 0;
+  background: linear-gradient(90.21deg,black, gray);
+  padding: 60px 0 100px 0;
 }
 .connect img {
-  width: 92%;
+  width: 72%;
 }
 .connect h2 {
 	font-size: 45px;
@@ -529,12 +624,12 @@ transition: 0.4s ease-in-out;
   margin-bottom: 30px;
 }
 .connect form input, .connect form textarea {
-  width: 100%;
+  width: 200%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   color: #fff;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   padding: 18px 26px;
   font-weight: 500;
   font-size: 18px;
@@ -556,8 +651,8 @@ transition: 0.4s ease-in-out;
 }
 .connect form button {
   font-weight: 700;
-  color: #000;
-  background-color: #fff;
+  color: white;
+  background-color: black;
   padding: 14px 48px;
   font-size: 18px;
   margin-top: 25px;
@@ -570,11 +665,11 @@ transition: 0.4s ease-in-out;
   position: relative;
 }
 .connect form button:hover {
-  color: #fff;
+  color: black;
 }
 .connect form button::before {
   content: "";
-  background: #121212;
+  background: white;
   width: 0;
   height: 100%;
   position: absolute;
@@ -589,7 +684,7 @@ transition: 0.4s ease-in-out;
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 20px 0;
+  padding: 20px 0 20px 0;
   text-align: center;
   /* background-image: url('./assets/img/footer-bg.png'); */
   /* background-position: center center;

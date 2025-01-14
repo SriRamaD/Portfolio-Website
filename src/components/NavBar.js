@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 // import homeLogo from '../assets/images/logo.svg';
 import linkedinLogo from '../assets/images/linkedinlogo.svg';
-import githubLogo from '../assets/images/linkedinlogo.svg';
+import githubLogo from '../assets/images/gitlogo.png';
+// import mailLogo from '../assets/images/gmail2.png';
 import { Connect } from "./Connect";
 export const NavBar = () => {
     const[activeLink, setActiveLink] = useState('home');
@@ -20,7 +21,15 @@ export const NavBar = () => {
     })
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);
-    }
+    };
+
+    const handleConnectClick = () => {
+        // Scroll to the Connect section
+        const connectSection = document.getElementById('connect');
+        if (connectSection) {
+            connectSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
     return (
         <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
             <Container>
@@ -45,7 +54,7 @@ export const NavBar = () => {
                                 <img src={githubLogo} alt="Github Icon"/>
                             </a>
                         </div>
-                        <button className="connect-button" onClick={() => console.log('lets connect')}>
+                        <button className="connect-button" onClick={handleConnectClick}>
                             <span>Let's Connect</span>
                         </button>
                     </span>

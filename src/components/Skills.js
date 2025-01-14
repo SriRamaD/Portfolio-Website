@@ -29,7 +29,7 @@ export const Skills = () => {
     <Row id="skills">
         <h1 style={{ marginBottom: '30px' }}> Skills </h1>
     <Col md={6}> {/* This Col wraps the Carousel */}
-      <Carousel activeIndex={index} onSelect={handleSelect} indicators={false} controls={false} className="skill-carousel">
+      <Carousel activeIndex={index} onSelect={handleSelect} indicators={true} controls={true} className="skill-carousel">
         <Carousel.Item>
           <h3>Programming Skills</h3>
           {renderSkill('JavaScript')}
@@ -56,7 +56,7 @@ export const Skills = () => {
           {/* Add more tools/technologies here */}
         </Carousel.Item>
         <Carousel.Item>
-          <h3>Frameworks</h3>
+          <h3>Frameworks/Libraries</h3>
           {renderSkill('React')}
           {renderSkill('Angular')}
           {renderSkill('Vue.js')}

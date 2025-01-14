@@ -4,6 +4,7 @@ import Image1 from "../assets/images/Hi1.png";
 import Image2 from "../assets/images/Hi3.png";
 import Image3 from "../assets/images/Hi4.png";
 import { useState, useEffect } from "react";
+import resume from "../assets/Resume_Sri.pdf";
 
 
 export const Banner = () => {
@@ -52,6 +53,13 @@ export const Banner = () => {
             setDelta(500);
         }
     }
+    const handleConnectClick = () => {
+        // Scroll to the Connect section
+        const connectSection = document.getElementById('connect');
+        if (connectSection) {
+            connectSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
     return (
         <section className="banner" id="home">
             <Container>
@@ -67,7 +75,16 @@ export const Banner = () => {
                             languages, tools, and technologies, enabling seamless end-to-end web and mobile
                             application development.
                         </p>
-                        <button onClick={() => console.log('Contact me form')}>Let's Connect <ArrowRightCircle size={25}/></button>
+                        <Row>
+                            <Col>
+                                <button onClick={handleConnectClick}>Let's Connect <ArrowRightCircle size={25}/></button>
+                            </Col>
+                            <Col>
+                                <a href={resume} download="Resume_Sri" className="btn-download">
+                                    Download Resume
+                                </a>
+                            </Col>
+                        </Row>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={images[currentImage]} alt="" />
