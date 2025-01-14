@@ -9,7 +9,7 @@ export const Connect = () => {
   const[message, setMessage] = useState('');
 
   const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({});
+  // const [status, setStatus] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,7 +74,7 @@ export const Connect = () => {
                     <span>{buttonText}</span>
                   </button>
                 </Row>
-                {status.message && <Col><p className={status.success ? "success" : "danger"}>{status.message}</p></Col>}
+                {/* {status.message && <Col><p className={status.success ? "success" : "danger"}>{status.message}</p></Col>} */}
             </form>
           </Col>
         </Row>

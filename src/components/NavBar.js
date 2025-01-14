@@ -4,7 +4,7 @@ import { Nav, Navbar, Container } from "react-bootstrap";
 import linkedinLogo from '../assets/images/linkedinlogo.svg';
 import githubLogo from '../assets/images/gitlogo.png';
 // import mailLogo from '../assets/images/gmail2.png';
-import { Connect } from "./Connect";
+// import { Connect } from "./Connect";
 export const NavBar = () => {
     const[activeLink, setActiveLink] = useState('home');
     const[scrolled, setScrolled] = useState(false);
