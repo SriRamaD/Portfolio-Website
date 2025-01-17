@@ -45,21 +45,21 @@ export const NavBar = () => {
                     <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
                     <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('experience')}>Experience</Nav.Link>
                     <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
-                    <span className="navbar-text">
-                        <div className="social-icon">
-                            <a href="https://www.linkedin.com/in/krishnasai1310/">
-                                <img src={linkedinLogo} alt="LinkedIn Icon"/>
-                            </a>
-                            <a href="https://github.com/SriRamaD">
-                                <img src={githubLogo} alt="Github Icon"/>
-                            </a>
-                        </div>
-                        <button className="connect-button" onClick={handleConnectClick}>
-                            <span>Let's Connect</span>
-                        </button>
-                    </span>
                 </Nav>
                 </Navbar.Collapse>
+                <span className="navbar-text">
+                    <div className="social-icon">
+                        <a href="https://www.linkedin.com/in/krishnasai1310/">
+                            <img src={linkedinLogo} alt="LinkedIn Icon"/>
+                        </a>
+                        <a href="https://github.com/SriRamaD">
+                            <img src={githubLogo} alt="Github Icon"/>
+                        </a>
+                    </div>
+                    <button className="connect-button" onClick={handleConnectClick}>
+                        <span>Let's Connect</span>
+                    </button>
+                </span>
             </Container>
         </Navbar>
     )

@@ -7,7 +7,7 @@ import {Skills} from './components/Skills.js';
 import {Experience} from './components/Experience.js';
 import {Projects} from './components/Projects.js';
 import {Connect} from './components/Connect.js';
-import {Footer} from './components/Footer.js';
+// import {Footer} from './components/Footer.js';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <Experience />
       <Projects />
       <Connect />
-      <Footer />
+      {/* <Footer /> */}
     </div>
 
   );
