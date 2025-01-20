@@ -4,7 +4,7 @@ import Image1 from "../assets/images/Hi1.png";
 import Image2 from "../assets/images/Hi3.png";
 import Image3 from "../assets/images/Hi4.png";
 import { useState, useEffect } from "react";
-import resume from "../assets/Resume_Sri.pdf";
+import resume from "../assets/Resume_SriRama.pdf";
 
 
 export const Banner = () => {

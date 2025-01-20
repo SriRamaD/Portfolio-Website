@@ -11,7 +11,7 @@ export const Projects = () => {
   const projects = [
     {
       title: "iOS Application",
-      description: "iOS mobile application ",
+      description: "iOS mobile application with personality-based matching and interactive UI. ",
       imgUrl: iOSProject,
       githubUrl: "https://github.com/SriRamaD/iOSApplication",
     },
@@ -23,19 +23,19 @@ export const Projects = () => {
     },
     {
       title: "Attendance Tracking",
-      description: "",
+      description: "Real-time attendance tracking system for efficient and accurate logging.",
       imgUrl: AttendanceProject,
       githubUrl: "https://github.com/SriRamaD/Attendance-Tracking",
     },
     {
       title: "Personal Portfolio",
-      description: "Design & Development",
+      description: "Personal portfolio showcasing skills, projects, and experience.",
       imgUrl: PortfolioProject,
       githubUrl: "https://github.com/SriRamaD/Portfolio-Website",
     },
     {
       title: "Autonomous Rover using Unity",
-      description: "Design & Development",
+      description: "Autonomous rover using Unity for navigation and object pickup.",
       imgUrl: RoverProject,
       githubUrl: "https://github.com/SriRamaD/AutonomousRover",
     },
