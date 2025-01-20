@@ -682,14 +682,34 @@ transition: 0.4s ease-in-out;
   width: 100%;
 }
 
+/* Success message styling */
+.success-message {
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #333; /* Dark background for modal */
+  border-radius: 15px;
+  color: white;
+}
+
 /************ Footer Css ************/
 .footer {
   padding: 20px 0 20px 0;
   text-align: center;
-  /* background-image: url('./assets/img/footer-bg.png'); */
-  /* background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat; */
 }
 .footer img {
   width: 26%;
@@ -701,8 +721,6 @@ transition: 0.4s ease-in-out;
   letter-spacing: 0.5px;
   margin-top: 20px;
 }
-
-
 
 .App {
   text-align: center;

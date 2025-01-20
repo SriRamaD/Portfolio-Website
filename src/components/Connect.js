@@ -1,19 +1,26 @@
 import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import Image1 from "../assets/images/Hi1.png";
-import emailjs from "@emailjs/browser"; // Import EmailJS
-
+import emailjs from "@emailjs/browser";
 export const Connect = () => {
-  const[name, setName] = useState('');
-  const[email, setEmail] = useState('');
-  const[message, setMessage] = useState('');
-
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [buttonText, setButtonText] = useState('Send');
-  // const [status, setStatus] = useState({});
+  const [status, setStatus] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic validation to check if name and email are provided
+    if (!name || !email) {
+      setStatus('Name and Email are required!');
+      return;
+    }
+
     setButtonText('Sending...');
+
     const serviceId = 'service_l2qtlpr';
     const templateId = 'template_rcjwrmo';
     const publicKey = 'Df6yH3EgWBAtkbXXG';
@@ -31,11 +38,19 @@ export const Connect = () => {
         setName('');
         setEmail('');
         setMessage('');
+        setStatus('Email sent successfully!');  // Success message
+        setButtonText('Send');
+        setTimeout(() => setStatus(''), 3000);
+        setShowModal(true);
+        setTimeout(() => {
+          setShowModal(false);
+        }, 4000);
       })
       .catch((error) => {
         console.error('Error sending email:', error);
+        setStatus('Something went wrong. Please try again later.'); // Error message
+        setButtonText('Send');
       });
-
   };
 
   return (
@@ -48,37 +63,57 @@ export const Connect = () => {
           <Col md={6}>
             <h2>Get in Touch</h2>
             <form onSubmit={handleSubmit}>
+              <Row sm={6} className="px-1">
+                <input
+                  type="text"
+                  value={name}
+                  placeholder="Name *"
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Row>
+              <Row sm={6} className="px-1">
+                <input
+                  type="email"
+                  value={email}
+                  placeholder="Email Address *"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </Row>
+              <Row sm={6} className="px-1">
+                <textarea
+                  rows={6}
+                  value={message}
+                  placeholder="Message"
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </Row>
               <Row>
-                <Col sm={6} className="px-1">
-                  <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)} />
+                <button type="submit">
+                  <span>{buttonText}</span>
+                </button>
+              </Row>
+
+              {/* Displaying status messages */}
+              {status && (
+                <Col>
+                  <p
+                    className={status.includes('successfully') ? "success-message" : "error-message"}
+                  >
+                    {status}
+                  </p>
                 </Col>
-                </Row>
-                {/* <Col sm={6} className="px-1">
-                  <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
-                </Col> */}
-                <Row>
-                <Col sm={6} className="px-1">
-                  <input type="email" value={email} placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} />
-                </Col>
-                </Row>
-                {/* <Col sm={6} className="px-1">
-                  <input type="tel" value={formDetails.phone} placeholder="Phone Number" onChange={(e) => onFormUpdate('phone', e.target.value)} />
-                </Col> */}
-                <Row>
-                <Col sm={6} className="px-0">
-                  <textarea rows={6} value={message} placeholder="Message" onChange={(e) => setMessage(e.target.value)} />
-                </Col>
-                </Row>
-                <Row>
-                  <button type="submit">
-                    <span>{buttonText}</span>
-                  </button>
-                </Row>
-                {/* {status.message && <Col><p className={status.success ? "success" : "danger"}>{status.message}</p></Col>} */}
+              )}
             </form>
           </Col>
         </Row>
       </Container>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Body>
+          Thank you for reaching out! I'll be in touch soon 🎉
+        </Modal.Body>
+      </Modal>
     </section>
   );
 };
